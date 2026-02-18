@@ -1,0 +1,50 @@
+{
+  "xsappname": "vcplanner_mt-sbpmonitor-dev",
+  "tenant-mode": "shared",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "Required for Token Exchange"
+    },
+    {
+      "name": "$XSAPPNAME.User",
+      "description": "User access",
+      "grant-as-authority-to-apps": [
+        "vcpsass-sbpmonitor-dev!t488113"
+      ]
+    },
+    {
+      "name": "$XSAPPNAME.mtcallback",
+      "description": "Subscription via SaaS Registry",
+      "grant-as-authority-to-apps": [
+        "$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+      ]
+    }
+  ],
+  "authorities": [
+    "$ACCEPT_GRANTED_AUTHORITIES"
+  ],
+  "foreign-scope-references": [
+    "uaa.user",
+    "vcpsass-sbpmonitor-dev!t488113.User"
+  ],
+  "role-templates": [
+    {
+      "name": "SaaSUserRole",
+      "description": "Standard User Role",
+      "scope-references": [
+        "uaa.user",
+        "$XSAPPNAME.User"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "grant-types": [
+      "client_credentials",
+      "user_token",
+      "refresh_token",
+      "authorization_code"
+    ]
+  }
+}

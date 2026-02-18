@@ -1,0 +1,32 @@
+{
+  "_version": "3.0", 
+  "identification": {
+    "id": "vcplanner.provider.content",
+    "entityType": "contentPackage"
+  },
+  "payload": {
+    "catalogs": [
+      {
+        "id": "vcplanner.catalog",
+        "title": "VC Planner Apps"
+      }
+    ],
+    "groups": [
+      {
+        "id": "vcplanner.group",
+        "title": "Applications"
+      }
+    ],
+    "apps": [
+      {
+        "id": "cpapp.locationmaster",
+        "title": "Location Master",
+        "applicationType": "HTML5",
+        "url": "/cpapplocationmaster",              
+        "catalogs": ["vcplanner.catalog"],
+        "groups": ["vcplanner.group"],
+        "roles": []        
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "vcplanner_mt",
+  "version": "1.0.0",
+  "description": "VCPlanner multitenancy",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/cds-mtxs": "^3",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "@sap/xssec": "^4",
+    "express": "^4",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "auth": {
+      "kind": "xsuaa",
+      "tenant_retrieval_strategy": "token",
+      "restrict_all_services": false
+    },
+      "multitenancy": true
+    },
+    "profile": "with-mtx-sidecar"
+  }
+}
